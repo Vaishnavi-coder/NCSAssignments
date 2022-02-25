@@ -1,0 +1,305 @@
+   
+/////// Salary count/////////
+ 
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        Double Basic, DA, TA, TSalary, Bonus;
+       
+        Console.Write("Enter Basic Salary : ");
+        Basic = Convert.ToInt32(Console.ReadLine());
+        
+        DA = (Basic * 8) / 100;
+        TA = (Basic * 7) / 100;
+        TSalary = Basic + DA + TA;
+    	Console.Write("\nTSalary : "+TSalary);
+	
+	
+        if(TSalary>=50000 && TSalary<60000)
+        {
+            Bonus = Basic*0.1;
+		    TSalary = TSalary+Bonus;
+          Console.Write("After bonus"+ TSalary);
+        }
+        else if(TSalary<50000)
+        {
+            Bonus = Basic*0.08;
+            TSalary = TSalary+Bonus;
+          Console.Write("After bonus"+ TSalary);
+        }
+        
+    }
+}
+     
+
+
+/////// Order Bill/////////
+
+
+using System;
+
+namespace demo
+{
+   public class order
+    { 
+        int pizza_cost;
+        int Burger_cost;
+        int ColdDrink_cost;
+        int Tea_cost;
+	
+	public int CalculateBill()
+        {
+		int total;
+		total =pizza_cost*450+Burger_cost*350+ColdDrink_cost*100+Tea_cost*50;
+		return total;
+	    }
+	}
+	internal class Pizza
+        {
+        static void Main()
+	{
+	 Console.WriteLine("Menu\n A. Pizza cost =450\n B.Burger cost = 350\n C.Cold  Drink = 100\n D.Tea cost = 50; ");
+           
+	 int pizzaQ, burgerQ, coldQ, teaQ;
+       
+            Console.WriteLine("Enter Quantity of Pizza");
+            pizzaQ = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter Quantity of Burger");
+            burgerQ = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter Quantity of Cold Drink");
+            coldQ = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter Quantity of Tea");
+            teaQ = Convert.ToInt32(Console.ReadLine());
+
+	   order order1 = new order();
+            int total = order1.CalculateBill();
+        {
+        if(total>=10000)
+        {
+          double deduct = total - total*10 / 100;
+	   
+          Console.Write("Bill after Discount"+ deduct);
+        }
+       else if(total>10000 && total<=50000)
+        {
+          double  deduct = total -  total*30 / 100;
+          
+          Console.Write("Bill after Discount"+ deduct);
+        }
+	else
+            {
+                Console.WriteLine("Bill after Discount:" + total);
+            }
+        Console.ReadLine();
+        
+      }
+	}
+    
+    }
+}
+
+
+
+
+
+
+/////// Pattern /////////
+
+
+
+
+1)
+
+using System;
+
+namespace pattern
+{
+ class Patt1
+ {
+  static void Main(string[] args)
+  {
+   char i, j;
+   for(i='f'; i>='a'; i--)
+   {
+    for(j='a'; j<=i; j++)
+     Console.Write(j);
+    Console.WriteLine();
+   } 
+  }
+ }
+}
+
+2)
+
+using System;
+
+namespace pattern
+{
+ class Patt2
+ {
+  static void Main(string[] args)
+  {
+   int i, j;
+ char x='A';
+   for(i=1; i<=5; i++)
+   {
+    for(j=1; j<=i; j++)
+     Console.Write(x++);
+    Console.WriteLine();
+   }
+  }
+ }
+}
+
+
+
+3)
+using System;
+
+namespace pattern
+{
+ class Patt3
+ {
+  static void Main(string[] args)
+  {
+   int i, j,x=2;
+   	
+   for(i=1; i<=4; i++)
+   {
+    for(j=1; j<=i; j++)
+    {
+     Console.WriteLine(x+ "\t");
+	 x=x+2;
+   }
+     Console.WriteLine();
+  }
+ }
+}
+}
+
+4)
+
+using System;
+
+namespace pattern
+{
+ class Patt4
+ {
+  static void Main(string[] args)
+  {
+  int i, j;
+   char c = 'A';
+      for (i = 1; i < 5; i++)
+       {        
+         for (j = 1; j<=(i*2-1); j++)
+          {
+             if (j == 5) 
+		continue;
+             Console.Write(c);
+             c++;
+            }
+            Console.WriteLine();
+        }
+
+
+    }
+ }
+}
+
+
+ 5)   
+using System;
+
+public class patt5
+{
+    public static void Main(string[] args)
+    {
+      	int i, j;
+  	 for(i=5; i>=1; i--)
+   	{
+   	 for(j=1; j<=i; j++)
+    	 Console.Write("*");
+  	 Console.WriteLine(); 
+    	}
+     }
+}
+
+6)
+using System;
+
+namespace patt6
+{
+ class Program
+ {
+  static void Main(string[] args)
+  {
+   int i, j;
+   int c=0;
+   char[] demo = "ABCDEFGHIJ".ToCharArray();
+   for(i=1; i<=4; i+=1)
+   {
+    for(j=5; j>=1; j--)
+    {
+    if(j>i)
+	Console.Write(" ");
+    else
+     Console.Write(demo[c++] +" ");
+    }
+    Console.WriteLine();
+   }
+  }
+ }
+} 
+
+
+
+/////// ATM /////////
+
+using System;  
+class program 
+{  
+    public static void Main() 
+    {  
+        int amount = 100, deposit, withdraw;  
+        int choice, pin = 0, x = 0;  
+        Console.WriteLine("Enter pin ");  
+        pin = int.Parse(Console.ReadLine());  
+        while (true) {  
+            Console.WriteLine("1. Deposit \n"); 
+            Console.WriteLine("2. Withdraw \n");
+            Console.WriteLine("3. Current Balance\n")
+         
+            Console.WriteLine("ENTER CHOICE : ");  
+            choice = int.Parse(Console.ReadLine());  
+            switch (choice) {  
+                case 1:  
+                    Console.WriteLine("\n Current balance Rs : {0} ", amount);  
+                    break;  
+                case 2:  
+                    Console.WriteLine("\n Withdraw amt enter : ");  
+                    withdraw = int.Parse(Console.ReadLine());  
+                    if (withdraw % 100 != 0) {  
+                        Console.WriteLine("\n Amount should above 100");  
+                    } else if (withdraw > (amount - 1000)) {  
+                        Console.WriteLine("\n Less balance");  
+                    } else {  
+                        amount = amount - withdraw;  
+                         
+                        Console.WriteLine("\n  Current Balance Rs : {0}", amount);  
+                    }  
+                    break;  
+                case 3:  
+                    Console.WriteLine("\n Diposite amount");  
+                    deposit = int.Parse(Console.ReadLine());  
+                    amount = amount + deposit;  
+                    Console.WriteLine(“Amount diposited..”);  
+                    Console.WriteLine("Total balance os Rs : {0}", amount);  
+                    break;  
+                
+                    }  
+            }  
+        }  
+    }  
