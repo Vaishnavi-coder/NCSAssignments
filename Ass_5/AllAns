@@ -1,0 +1,352 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NCS_First
+
+{
+public class MainBank
+{
+    
+        public int year;
+        public double principle;
+	public double I;
+ }
+public class BOI : MainBank
+{
+   double I = 10.2 / 100;
+    public BOI() 
+	{
+	 double SI = (principle * year * I) / 100;
+    	Console.WriteLine("SI is"+SI) ;   
+	}
+   
+    
+}
+public class AxisBank : MainBank
+{
+    double I = 9 / 100;
+    public AxisBank() 
+   {
+	 double SI = (principle * year * I) / 100;
+    	Console.WriteLine("SI is"+SI) ;   
+   }
+   
+}
+public class CosmosBank : MainBank
+{
+    double I = 9 / 100;
+    public CosmosBank() 
+   {
+	 double SI = (principle * year * I) / 100;
+    	Console.WriteLine("SI is"+SI) ;   
+   }
+}
+
+public class MyClass
+{
+    static void Main(string[] args)
+    {
+       
+        Console.WriteLine("1. Bank of India");
+        Console.WriteLine("2. Axis Bank ");
+        Console.WriteLine("3. Cosmos Bank ");
+
+	Console.Write("Enter principle: ");
+        double principle = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Enter years: ");
+        int year = Convert.ToInt32(Console.ReadLine());
+
+
+        Console.Write("\n\nChoose Bank : ");
+       int bank = Convert.ToInt32(Console.ReadLine());
+
+        switch(bank)
+        {
+
+            case 1:
+                  
+                   BOI b1= new BOI(principle,year);
+
+                      break;
+            case 2:
+                    AxisBank b2= new AxisBank(principle,year);
+
+                    break;
+            case 3:
+                    CosmosBank b3 = new CosmosBank(principle,year);
+
+                    break;
+           
+        }
+	Console.ReadLine();
+    }
+}
+}
+
+
+
+
+/////////// 2  ///////////
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EMIcalulator
+{
+    public class Emi
+    {
+	public double principle;
+        public double years;
+
+        public double Principal
+        {
+            get { return principal; }
+            set { principal = value; }
+        }
+        public double Years 
+        {
+            get { return no_of_years; }
+            set { no_of_years = value; }
+        }
+    }
+    public class Axis:Emi
+    {
+        double per_year;
+        double per_month;
+        double rate = 0.18;
+        
+        public void Calculate()
+        {
+            rate /= 12;
+            no_of_years *= 12;
+            this.per_month = principal * rate * Math.Pow(1 + rate, no_of_years) / (Math.Pow(1 + rate, no_of_years) - 1);
+            this.per_year = 12 * per_month;
+        }
+        public double PerMonthEmi
+            {
+                get { return per_month; }
+            }
+            public double PerYearEmi
+            {
+                get { return per_year; }
+            }
+    }
+    public class BOI : Emi
+    {
+        double per_year;
+        double per_month;
+        double rate = 0.28;
+
+        public void Calculate()
+        {
+            rate /= 12;
+            no_of_years *= 12;
+            per_month = principal*rate*Math.Pow(1+rate,no_of_years)/ (Math.Pow(1 + rate, no_of_years) - 1);
+            per_year = 12 * per_month;
+        }
+        public double PerMonthEmi
+        {
+            get { return per_month; }
+        }
+        public double PerYearEmi
+        {
+            get { return per_year; }
+        }
+    }
+    public class Cosmos : Emi
+    {
+        double per_year;
+        double per_month;
+        double rate = 0.28;
+
+        public void Calculate()
+        {
+            rate /= 12;
+            no_of_years *= 12;
+            per_month = principal * rate * Math.Pow(1 + rate, no_of_years) / (Math.Pow(1 + rate, no_of_years) - 1);
+            per_year = 12 * per_month;
+        }
+        public double PerMonthEmi
+        {
+            get { return per_month; }
+        }
+        public double PerYearEmi
+        {
+            get { return per_year; }
+        }
+    }
+
+    internal class Program
+    {
+        static void Main()
+        {
+        Console.WriteLine("1. Bank of India");
+        Console.WriteLine("2. Axis Bank ");
+        Console.WriteLine("3. Cosmos Bank ");
+
+        Console.WriteLine("Enter the Principal");
+	double p = Convert.ToDouble(Console.ReadLine());
+        Console.WriteLine("Enter the time in years");
+	double years = Convert.ToDouble(Console.ReadLine());
+
+	Console.Write("\n\nChoose Bank : ");
+
+	int ch = Convert.ToInt32(Console.ReadLine());
+
+        switch(ch)
+        {
+            case 1: Axis A_emi = new Axis();
+                    A_emi.Principal = p;
+                    A_emi.Years = years;
+                    A_emi.Calculate();
+
+                    Console.WriteLine("Monthly emi:"+A_emi.MONTHLY_EMI);
+                    Console.WriteLine("Yearly emi:" + A_emi.YEARLY_EMI);
+                    break;
+
+            case 2: BOI B_emi = new BOI();
+                     B_emi.Principal = p;
+                     B_emi.Years = years;
+                     B_emi.Calculate();
+
+                    Console.WriteLine("Monthly emi:" + B_emi.MONTHLY_EMI);
+                    Console.WriteLine("Yearly emi:" + B_emi.YEARLY_EMI);
+                    break;
+
+            case 3: Cosmos C_emi = new Cosmos();
+                    C_emi.Principal = p;
+                    C_emi.Years = years;
+                    C_emi.Calculate();
+
+                    Console.WriteLine("Monthly emi:" + C_emi.MONTHLY_EMI);
+                    Console.WriteLine("Yearly emi:" + C_emi.YEARLY_EMI);
+                    break;
+            }
+            Console.ReadLine();
+  	 }
+    }
+}
+
+/////// 3 ////////////////////
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NCS_First
+
+{
+
+abstract class EmpSal
+{
+    public abstract int getSalary();
+    public void show()
+{
+    Console.WriteLine("\nHi : " + name);
+      
+}
+}
+public class Emp : EmpSal
+{
+    public int id,Bsal,DA,TA;
+    public int professionalTax;
+    public string name;
+   
+    public override int getSalary()
+    { 
+
+        Grossal= ((Bsal+DA+TA)-(2*professionalTax));
+   	Console.WriteLine("\nYour  Monthly Salary : " +Grossal);
+    
+  }
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+
+        Emp e = new Emp();
+       
+        Console.Write("Enter Base Salary : ");
+        e.baseSalary = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Enter TA: ");
+        e.travelAllowance = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Enter DA: ");
+        e.dearAllowance = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Enter Professional Tax : ");
+        e.professionalTax = Convert.ToInt32(Console.ReadLine());
+	
+	e.getSalary();
+        e.show();
+
+    }
+} 
+
+
+////// 4 /////////
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NCS_First
+
+{
+    class MethodOverloading
+    {
+
+        public void func(int a)
+        {
+            int z = a * a * a;
+            Console.WriteLine(" Cube is :" + z);
+        }
+        public void func(double a)
+        {
+            double z = a * a;
+            Console.WriteLine(" square is :" + z);
+        }
+
+      /*  public void func(int a, int f = 1)
+        {
+            while (a > 1)
+            f *= a;
+            a--;
+            Console.WriteLine("Factorial is:"+ f);
+           
+        }*/
+
+
+   }
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            MethodOverloading mth = new MethodOverloading();
+            mth.func(2);
+            mth.func(3.0);
+          //  mth.func(3);
+            Console.ReadKey();
+        }
+    }
+}
+
+
+
+
+
+
+
+ 
