@@ -1,0 +1,206 @@
+Employee Model
+---------------
+
+ public class EmployeeModel
+    {
+        public int ID { get; set; }
+        public String Name { get; set; }
+        public int Age { get; set; }
+        public String City { get; set; }
+
+    }
+
+
+Employee Controller
+--------------------
+
+ public class EMPController : Controller
+    {
+        // GET: Emp
+        public ActionResult DisplayAll()
+        {
+	    //  ViewData["item"] = new List<string>();
+          
+	    List<EmployeeModel> lst = new List<EmployeeModel>();
+            lst.Add(new EmployeeModel
+            {
+                ID = 101,
+                Name = "ABC",
+                Age = 44,
+                City = "Mumbai"
+            });
+            lst.Add(new EmployeeModel
+            {
+                ID = 102,
+                Name = "BCD",
+                Age = 55,
+                City = "Mumbai"
+            });
+            lst.Add(new EmployeeModel
+            {
+                ID = 103,
+                Name = "CDF",
+                Age = 33,
+                City = "Mumbai"
+            });
+            TempData["List"] = lst;
+            TempData.Keep();
+            return view(lst);
+
+        }
+        public ActionResult Display2()
+        {
+        
+            return View(TempData["List"]);          
+
+        }
+    }
+
+
+Employee_DisplayAll View
+--------------------
+
+
+@model IEnumerable<MVCAssign.Models.EmployeeModel>
+@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body align="center">
+    <div align="center">
+        <h1>Employee Details</h1><br />
+        <table class="table"  >
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Age)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.City)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+        </tr>        
+    }
+        </table>
+    </div>
+</body>
+</html>
+
+
+Employee_Display2 View
+-----------------------
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Display2</title>
+</head>
+<body>
+    <div>
+        <table class="table">
+            <tr>
+
+                <th>
+                    Name
+                </th>
+
+                <th>
+                    City
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.City</td>
+        </tr>
+            }
+            </table>
+</div>
+</body>
+</html>
+
+
+
+
+Product Controller
+--------------------
+
+    public ActionResult Index()
+        {
+            
+            return View();
+        }
+        public ActionResult Display1()
+        {
+            ViewData["item"] = new List<string>()
+
+            {
+                "ABC",
+                "BCD",
+                "XYZ"
+            };
+         
+
+          
+            return View();
+        }
+       
+
+
+
+Product_Display1 View
+-----------------------
+
+
+@{
+    ViewBag.Title = "";
+}
+
+    <div>
+        <ol>
+        @foreach (var item in (List<string>)ViewData["item"])
+        {
+            <li>@item</li>
+        }
+    </ol>
+</div>
+
+ 
+
+
+
+
