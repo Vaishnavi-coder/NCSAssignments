@@ -1,0 +1,203 @@
+//Controller//
+
+using MVC_Validation.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace MVC_Validation.Controllers
+{
+    public class HomeController : Controller
+    {
+       
+        public ActionResult Validate(User p)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Validate");
+            }
+            return View(p);
+        }
+
+     
+        public ActionResult Show(string Name, int Age, string City)
+        { 
+            ViewBag.Name = Name;
+            ViewBag.Age = Age;
+            ViewBag.City = City;
+
+
+            if (Age < 18)
+            {
+                return RedirectToAction("AgeErr");
+            }
+            else if (City == "Mumbai")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("CityErr");
+            }
+
+        }
+     }
+}
+
+
+//////////// Views///////////
+
+1.
+
+@model MVC_Validation.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        .col-md-10 {
+            color: orangered;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm("Show","Home"))
+
+    {
+        @Html.AntiForgeryToken()
+
+
+    <div class="form-horizontal" id=" Form">
+        <h4>User</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Age, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+       
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Mobile, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    }
+
+
+
+    <div>
+        @Html.ActionLink("Back to List", "Validate")
+    </div>
+
+</body>
+</html>
+
+
+2.
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Show</title>
+</head>
+<body>
+    <div> 
+        Welcome @ViewBag.Name
+    </div>
+   
+    <p>@Html.ActionLink("Back to list","Validate")</p>
+
+</body>
+</html>
+
+
+
+//Error Page//
+
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AgeErr</title>
+</head>
+<body>
+    <div>
+        <h2>You are not Eligible cuz less than 18</h2>
+    </div>
+</body>
+</html>
+
+2.
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CityErr</title>
+</head>
+<body>
+    <div>
+        <h2>Mumbai City Must..</h2>
+    </div>
+</body>
+</html>
