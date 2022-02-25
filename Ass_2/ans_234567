@@ -1,0 +1,186 @@
+////Area///
+
+<html>
+<head>
+    <script >
+
+        var length = prompt("Enter length of your rectangle.");
+        var width = prompt("Enter width of your rectangle.");
+	        
+	
+	function area(length, width) 
+	{
+            return length * width;
+        }
+        function area1(length, width) {
+            return 2*( length + width);
+        }
+        
+        document.writeln('Area of rectangle is' + area(length, width));         
+        
+	const bvalue, const hvalue = prompt("Enter base & height of your triangle.");
+	 
+	const triarea = (base * height)/2;
+	console.log('area of triangle ${tarea}');
+	 
+             
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+///BGColor//
+
+<html>
+<head>
+<style>
+div {
+    width:200px;
+    height:200px;
+    background:red;
+}
+</style>
+
+<body>
+<script>
+$(document).ready(function () {
+    var back = ["#ff0000","blue","gray"];
+    var rand = back[Math.floor(Math.random() * back.length)];
+    console.log(rand);
+    $('div').css('background',rand);
+    })
+
+
+</script>
+</body>
+</head>
+</html>
+
+//Event //
+
+
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+</head>
+<script>
+
+$(document).ready(function(){  
+    $("button").click(function(){  
+        document.write("Welcome on page");  
+    });  
+});  
+
+</script>
+<body>
+<button> Click Me</button>
+</body>
+</html>
+
+
+//Combo//
+
+
+<html>
+<head>
+</head>
+<body>
+<script>
+$('#combo-box').kendoComboBox(
+{
+autowidth: false,
+index: 0,
+dataTextField: 'name',
+dataValueField: 'id',
+dataSource: 
+[
+{'name':'India'},
+{'name': 'Austrelia'},
+{'name':'Srilanka'}
+
+]
+});
+</script>
+</body>
+</html>
+
+//Sal//
+
+
+<script>
+
+function Salary(basic)
+{
+	
+	const ta, da, pf;
+	
+	ta = 0.2 * basic;
+	da = 0.5 * basic;
+	pf = 0.11 * basic;
+	
+	let gross;
+	
+	gross = Math.round(basic + ta + da +pf);
+							
+	return gross;
+}
+	let basic = 10000;
+	document.write(Salary(basic));
+	
+</script>
+
+
+//Calci //
+
+
+<html>    
+    <head>    
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>    
+    <script>    
+            
+       
+        function Add()
+	{    
+         const a =3;
+	 const b = 2;   
+         var result =a+b;    
+          alert("The add is "+result);    
+        }    
+        function Division(){    
+         const x =3;
+	 const y = 2;   
+         var result1 =x/y;    
+          alert("The div is "+result1);  
+        }    
+	function Division(){ 
+        const m =3;
+	 const n = 2;   
+         var result =m*n;    
+          alert("The mul is "+result2);    
+             
+        }    
+        function Sub(){    
+         var no1=parseInt($("#txtNo1").val());    
+         var no2=parseInt($("#txtNo2").val());    
+         var result3 =no1/no2;    
+          alert("The result is "+result3);    
+        }    
+    </script>    
+    </head>    
+    <body>    
+       First Number <input type="text" id="txtNo1" ><br>    
+        Second Number<input type="text" id="txtNo2" ><br>    
+        <input type="button"  value="+" onClick="Add()">    
+        <input type="button" value="/" onClick="Subtraction()">    
+        <input type="button" value="*" onClick="Multiply()">    
+        <input type="button" value="/" onClick="Divide()">    
+    </body>    
+    </html> 
+
+
+
+
