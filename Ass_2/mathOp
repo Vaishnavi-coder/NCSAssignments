@@ -1,0 +1,34 @@
+
+<html>
+<head>
+    <script >
+
+       var a=2;
+       var b=3;
+	
+	function add() 
+	{
+            return a+b
+        }
+	document.write("addition" + add);
+
+        function sub() 
+	{
+            return a-b;
+        }
+	document.write("subtraction" + sub);
+
+	function mul() 
+	{
+            return a*b;
+        }
+	document.write("multiplication" + mul);
+
+                   
+    </script>
+</head>
+<body>
+    
+</body>
+
+</html>
