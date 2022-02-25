@@ -1,0 +1,55 @@
+
+<html>
+<head>
+
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2016.2.714/styles/kendo.common.min.css">
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2016.2.714/styles/kendo.default.min.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2016.2.714/js/kendo.all.min.js"></script>
+</head>
+<body>
+ 
+    <div id="grid"></div>
+    <script>
+
+	var field=[{
+            Sr.No: 11,
+            Salary: "Chai",
+        }];
+
+	$(document).ready(function(){
+	 $("#grid").kendoGrid({
+
+	dataSource: {
+                    data: field,
+                    schema: {
+                        model: {
+                            id: "Sr.No",
+                            fields: {
+                                Salary: {
+                                    type: "string"
+                                }
+                            },
+                        }
+                    },
+
+                dataSource: {
+                    columns: [
+			{field: "Sr.No", title: "Sr.No"},
+                    { field: "ProductName", title: "ProductName"},
+                    ],
+			editable: "inline"
+            });
+        });
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
