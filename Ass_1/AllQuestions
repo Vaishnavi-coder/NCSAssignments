@@ -1,0 +1,241 @@
+
+	DOB
+ /////////////
+
+
+<html>
+<head>
+<body>
+<input type="date" id="Bdate" /> 
+<button id="btnCalculate"  onclick="Age();" >Calculate Age</button>
+
+<script>
+
+function getAge(dateString)
+ {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate()))
+    {
+        age--;
+    }
+    return age;
+}
+</script>
+</body>
+</head>
+</html>
+
+
+PIZZA
+//////////
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<body>
+ 
+
+    <p> MENU</p>
+    <table>
+        <thead>ITEM</thead>
+        <thead> PRICE</thead>
+        <tr>
+            <td>Pizza</td>
+            <td>350   </td>
+
+        </tr>
+        <tr>
+            <td>Burger</td>
+            <td>250   </td>
+
+        </tr>
+        <tr>
+            <td>Cold Drink</td>
+            <td>50   </td>
+
+        </tr>
+        <tr>
+            <td>Tea</td>
+            <td>60   </td>
+
+        </tr>
+        <tr>
+            <td>Coffee</td>
+            <td>80   </td>
+
+        </tr>
+    </table>
+
+    Pizza:<input type="number" id="pizza" min="1" max="50"><br />
+    Burger:<input type="number" id="burger" min="1" max="50"><br />
+    Cold Drink:<input type="number" id="colddrink" min="1" max="50"><br />
+    Tea:<input type="number" id="tea" min="1" max="50"><br />
+    Coffee:<input type="number" id="coffee" min="1" max="50"><br />
+
+    <button type="submit" onclick="calculateBill()">Calculate Bill</button>
+    <p id="result" /> </p>
+    <script>
+        function calculateBill() {
+
+            let pizza = document.getElementById("pizza").value;
+            let burger = document.getElementById("burger").value;
+            let colddrink = document.getElementById("colddrink").value;
+            let tea = document.getElementById("tea").value;
+            let coffee = document.getElementById("coffee").value;
+            var sum = pizza * 350 + burger * 250 + colddrink * 50 + tea * 60 + coffee * 80;
+            document.getElementById("result").innerHTML = sum;
+
+        }
+
+
+
+    </script>
+
+</body>
+</html>
+
+
+
+VOTE_AGE
+///////////
+
+
+<html>
+<head>
+<script>
+function validate()
+{
+var age=parseInt(prompt("Enter age"));
+var ans="not eigible";
+if(age>=18)
+{
+ans="eligible";
+}
+document.write("You are "+ans);
+}
+</script>
+</head>
+<body>
+    <script>
+        validate();
+    </script>
+</body>
+</html>
+
+
+
+LEAP YEAR
+//////////
+
+
+
+<html>
+<body>
+Year: <input type="number" id="year" /><br />
+
+    <button type="submit" onclick="check_leapyear()">Know Year </button>
+<script>
+
+function check_leapyear()
+{
+		
+		var year;
+ 
+		 
+		year = document.getElementById("year").value;
+ 
+		
+		if( (0 == year % 4) && (0 != year % 100) || (0 == year % 400) )
+		{
+			alert(year+" is a leap year");  
+		}
+		else
+		{
+			alert(year+" is not a leap year");  
+		}
+}
+
+</script>
+</body>
+</html>
+
+
+
+VALIDATION
+///////
+
+
+
+
+<html>
+<head>
+
+</head>
+<body>
+    <form action="" onsubmit="return validate()" method="post"  >
+        First Name:<input type="text" id="First_name" /><br />
+        Last Name:<input type="text" id="Last_name" /><br />
+        Email:<input type="email" id="email" /><br />
+        Mobile Number:<input type="number" id="mobile_num" /><br />
+        Age:<input type="text" id="age" /><br />
+      
+        <button type="submit" > Submit</button>
+
+        <p id="result"></p>
+
+    </form>
+    <script>
+     
+        function validate()
+        {   
+            var fname = document.getElementById("First_name").value;
+            var email = document.getElementById("email").value;
+            var mobile_num = document.getElementById("mobile_num").value;
+            var age = document.getElementById("age").value;
+            var mailformat = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+            var message = ' ';
+		if(fname==" ")
+	        {
+                 alert("Name must be filled out");
+                return false;
+	        }
+                else if(email=="")
+		{
+                    alert("Email is null");
+                        return false;
+                
+                }
+                else if (age=="" || age > 18) 
+                {
+                    alert("Age not valid");
+                    return false; 
+                }
+                else if(mobile_num="" || mobile_num>9999999999 || mobile_num<1000000000)
+                {
+                    alert("Mobile number  not valid");
+                    return false;
+                }      
+                else if (email.value.match(mailformat)) 
+                {
+                    alert("Email not valid");
+                    return false;
+                }
+                else{
+                    return true;
+                }
+	}
+
+
+
+    </script>
+</body>
+</html>
+
+
+
