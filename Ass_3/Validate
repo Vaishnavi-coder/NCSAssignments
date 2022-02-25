@@ -1,0 +1,36 @@
+
+
+<html>
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+<script>
+$(document).ready(function(){
+
+$("#Form").validate({
+</script>
+</head>
+
+
+<body>
+<form id="Form" action="" method="post">
+<p>
+<label for="name"> Name<span>(required)</span></lavel>
+<input id="name" name="name" minlength="3" type="text" required>
+
+</p>
+
+<p>
+<label for="email"> Email<span>(required)</span></lavel>
+<input id="email" type="name" name="email"  required>
+
+</p>
+
+<button text="submit" value="submit"> Click </button>
+</form>
+
+</body>
+</html>
