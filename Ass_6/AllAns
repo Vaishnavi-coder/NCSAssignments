@@ -1,0 +1,645 @@
+
+Sal,Date,Age
+
+///////  Home.aspx //////
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div align="center">
+            <table>
+             <asp:Button ID="Button1" runat="server" Text="Date and Time" OnClick="Button1_Click" /><br />
+            <asp:Button ID="Button2" runat="server" Text="Age calculator" /><br /><br /><br />
+            <asp:Button ID="Button3" runat="server" Text="Total Salary" OnClick="Button3_Click" />
+
+            </table>
+
+            
+        </div>
+    </form>
+</body>
+</html>
+
+//////////// Home.aspx.cs //////////
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace FirstAsp
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("DateTime.aspx");
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Sal.aspx");
+        }
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Age.aspx");
+        }
+}
+
+
+////// Age.aspx.cs //////////
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace FirstAsp
+{
+    public partial class Age : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        protected void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            int year = Convert.ToInt32(TextBox1.Text);
+            int currentage = DateTime.Today.Year - year;
+            Label2.Text = "Your age is :" + currentage;
+
+
+        }
+
+       
+    }
+} 
+
+/////////Age.aspx ////////////
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            margin-left: 240px;
+        }
+        .auto-style2 {
+            margin-left: 400px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="auto-style1">
+            <br />
+            <asp:Label ID="Label1" runat="server" Text="Enter Year of Birth "></asp:Label>
+            <asp:TextBox ID="TextBox1" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+            <br />
+        </div>
+        <p class="auto-style2">
+            <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+        </p>
+    </form>
+</body>
+</html>
+
+
+///////////Sal.aspx///////////
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace FirstAsp
+{
+    public partial class sal : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            int bs = Convert.ToInt32(TextBox1.Text);
+            int ta = Convert.ToInt32(TextBox2.Text);
+            int da = Convert.ToInt32(TextBox3.Text);
+            int Total_salary = bs + ta + da;
+            Label1.Text = "Total Salary :" + Total_salary;
+
+
+        }
+
+    }
+}
+
+////////// Sal.aspx.cs///////////
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <table>
+                <tr>
+                    <td>enter basic salary</td>
+                    <td>
+                        <asp:TextBox ID="TextBox1" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox></td>
+                </tr>
+                <tr>
+                <td>Travel allowance</td>
+                    <td>
+                        <asp:TextBox ID="TextBox2" runat="server" OnTextChanged="TextBox2_TextChanged"></asp:TextBox></td>
+                </tr>
+                <tr>
+                <td>enter Dear allowance</td>
+                    <td>
+                        <asp:TextBox ID="TextBox3" runat="server" OnTextChanged="TextBox3_TextChanged"></asp:TextBox></td>
+                </tr>
+                <tr>
+                <td class="auto-style1">
+                    <asp:Button ID="Button1" runat="server" Text="Total Salary" OnClick="Button1_Click" /></td>
+                </tr>
+                
+            </table>
+            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+        </div>
+    </form>
+</body>
+</html>
+
+////////// DateTime.aspx.cs ////////
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div align="center">
+            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+        </div>
+    </form>
+</body>
+</html>
+
+////////// DateTime.aspx ///////////
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace AssignWEBq2
+{
+    public partial class DateTime: System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Label1.Text = System.DateTime.Now.ToString();
+        }
+    }
+}
+
+
+
+Eligibillity
+
+
+///////// DefaultVoter.aspx.cs ///////////
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace FirstAsp
+{
+    public partial class DefaultVoter : System.Web.UI.Page
+    {
+       
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+                 
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            int age = Convert.ToInt32(TextBox1.Text);
+            if (age > 18)
+            {
+                Response.Redirect("DefaultVoter1");
+            }
+            else
+            {
+                Response.Redirect("DefaultVoter2");
+            }
+        }
+
+       
+    }
+}
+
+
+//////// DefaultVoter1.aspx /////////
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <h3>You are eligible..!</h3>
+        </div>
+    </form>
+</body>
+</html>
+
+
+//////// DefaultVoter1.aspx /////////
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+             <h3>You are Not eligible..!</h3> 
+        </div>
+    </form>
+</body>
+</html>
+
+
+//////// DefaultVoter2.aspx ///////
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+             <h3>You are Not eligible..!</h3> 
+        </div>
+    </form>
+</body>
+</html>
+
+
+Addition
+
+//////// Addition.apx.cs /////////////
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace FirstAsp
+{
+    public partial class Addition : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            int a = Convert.ToInt32(TextBox1.Text);
+
+            int b = Convert.ToInt32(TextBox2.Text);
+            int res = a + b;
+
+            Result.Text = res.ToString();
+        }
+    }
+}
+
+//////// Addition.apx ////////
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+        </div>
+        <asp:Label ID="Label1" runat="server" Text="Val 1"></asp:Label>
+        <asp:TextBox ID="TextBox1" runat="server" style="margin-left: 84px" Width="148px"></asp:TextBox>
+        <p>
+            <asp:Label ID="Label2" runat="server" Text="Val 2"></asp:Label>
+            <asp:TextBox ID="TextBox2" runat="server" style="margin-left: 84px" Width="148px"></asp:TextBox>
+        </p>
+        <p>
+            <asp:Label ID="Label3" runat="server" Text="Result"></asp:Label>
+            <asp:TextBox ID="Result" runat="server" style="margin-left: 84px" Width="148px"></asp:TextBox>
+        
+        </p>
+        <p>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" ></asp:Button>
+        </p>
+    </form>
+</body>
+</html>
+
+
+
+
+Registration
+
+
+//////// login page ////////
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace FirstAsp
+{
+    public partial class Age : System.Web.UI.Page
+    {
+
+	protected void Button1_Click(object sender, EventArgs e)
+        {
+            if(TextBox1.Text==null )
+            {
+                Label3.Text = "User Name is NULL";
+            }
+            if (TextBox2.Text == "password")
+            {
+                Response.Redirect("Services.aspx");
+            }
+            else
+            {
+                Label4.Text = "Invalid Password";
+            }
+        }
+}
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    </head>
+<body>
+    
+    <form id="form1" runat="server">
+        <asp:Label ID="Label1" runat="server" Text="Username"></asp:Label>
+&nbsp;&nbsp;
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+        <br />
+        <asp:Label ID="Label2" runat="server" Text="Pasword"></asp:Label>
+&nbsp;&nbsp;
+        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+        <p>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+        </p>
+    </form>
+    
+</body>
+</html>
+
+
+/////////DisplayPage ///////////
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace FirstAsp
+{
+    public partial class Age : System.Web.UI.Page
+    {
+       protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Request.QueryString["FName"] != null)
+                Label1.Text = Request.QueryString["FName"];
+            if (Request.QueryString["Age"] != null)
+                Label2.Text = Request.QueryString["Age"];
+            if (Request.QueryString["Mobile"] != null)
+                Label3.Text = Request.QueryString["Mobile"];
+            if (Request.QueryString["City"] != null)
+                Label4.Text = Request.QueryString["City"];
+            if (Request.QueryString["Address"] != null)
+                Label5.Text = Request.QueryString["Address"];
+
+        }
+}
+}
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+        
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+            <br />
+            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+            <br />
+            <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+            <br />
+            <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+            <br />
+            <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+        
+        </div>
+    </form>
+</body>
+</html>
+
+///////// RegistrationPage ////////////
+
+ protected void Button1_Click1(object sender, EventArgs e)
+        {
+            if (TextBox3.Text.Length != 10)
+            {
+                Label7.Text = "Invalid Mobile Number";
+            }
+            if (TextBox3.Text == null)
+            {
+                Label7.Text = "First Name should not be Null";
+            }
+            else
+            {
+                String Fname = TextBox3.Text;
+                String Age = TextBox4.Text;
+                String City = TextBox1.Text;
+                String Address = TextBox2.Text;
+                String Mobile = TextBox5.Text;
+                Response.Redirect(string.Format("~/Displayval.aspx?Fname={0}&Age={1}&City={2}&Address={3}&Mobile={4}", Fname, Age, City, Address, Mobile));
+            }
+        }
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        #form1 {
+            width: 804px;
+            height: 276px;
+        }
+        .auto-style1 {
+            height: 28px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table>
+<tr>
+        <td>
+        <asp:Label ID="Label1" runat="server" Text="First Name  "></asp:Label>
+        </td>
+        <td>
+        <asp:TextBox ID="TextBox3" runat="server" Height="16px" OnTextChanged="TextBox3_TextChanged" Width="183px" ViewStateMode="Disabled"></asp:TextBox>
+            <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
+        </td>
+    </tr>
+         <tr>       
+           <td class="auto-style1"> <asp:Label ID="Label2" runat="server" Text="Age"></asp:Label></td>
+            <td class="auto-style1"><asp:TextBox ID="TextBox4" runat="server" Height="18px" OnTextChanged="TextBox3_TextChanged" Width="185px"></asp:TextBox>
+                <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+             </td>
+        
+        </tr>
+            <tr>
+            <td>
+                <asp:Label ID="Label6" runat="server" Text="Mobile No"></asp:Label></td>
+               
+            <td><asp:TextBox ID="TextBox5" runat="server" OnTextChanged="TextBox5_TextChanged" Width="186px"></asp:TextBox>
+                <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label>
+                </td>
+        </tr>
+            <tr>
+            <td>
+                <asp:Label ID="Label3" runat="server" Text="City"></asp:Label></td>
+            <td><asp:TextBox ID="TextBox1" runat="server" OnTextChanged="TextBox5_TextChanged" Width="186px"></asp:TextBox>
+                <asp:Label ID="Label10" runat="server" Text="Label"></asp:Label>
+                </td>
+        </tr>
+            <tr>
+               <td> <asp:Label ID="Label4" runat="server" Text="Address"></asp:Label></td>
+            <td><asp:TextBox ID="TextBox2" runat="server" OnTextChanged="TextBox5_TextChanged" Width="186px"></asp:TextBox>
+                <asp:Label ID="Label11" runat="server" Text="Label"></asp:Label>
+                </td>
+        </tr>
+        <tr>
+          <td><asp:Button ID="Button1" runat="server" BackColor="#66CCFF" BorderColor="#000066" Text="Submit" OnClick="Button1_Click1" /></td>  
+        </tr>
+            </table>
+    </form>
+</body>
+</html>
+
+
+////////// ServicePage /////////////
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+        </div>
+        <p>
+            Services provided:</p>
+        <p>
+            -&gt;5G</p>
+        <p>
+            -&gt;Telecommunication</p>
+        <asp:Button ID="Button1" runat="server" PostBackUrl="~/WebForm1.aspx" Text="Go To Home" />
+    </form>
+</body>
+</html>
+
+
+//////// HomePage ////////
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title> HOME PAGE </title>
+    
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+        </div>
+        <asp:Menu ID="Menu1" runat="server" BackColor="#B5C7DE" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" StaticSubMenuIndent="10px">
+            <DynamicHoverStyle BackColor="#284E98" ForeColor="White" />
+            <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+            <DynamicMenuStyle BackColor="#B5C7DE" />
+            <DynamicSelectedStyle BackColor="#507CD1" />
+            <Items>
+                <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/WebForm1.aspx" Selected="True"></asp:MenuItem>
+                <asp:MenuItem Text="Services" Value="New Item" NavigateUrl="~/Login.aspx"></asp:MenuItem>
+                <asp:MenuItem Text="About us" Value="About us"></asp:MenuItem>
+                <asp:MenuItem Text="Registration" Value="Registration" NavigateUrl="~/registration.aspx"></asp:MenuItem>
+                <asp:MenuItem Text="Login" Value="Login" NavigateUrl="~/Login.aspx"></asp:MenuItem>
+            </Items>
+            <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
+            <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+            <StaticSelectedStyle BackColor="#507CD1" />
+        </asp:Menu>
+    </form>
+</body>
+</html>
